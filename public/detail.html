@@ -9,6 +9,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/my-style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/slider-img.css">
   <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" rel="stylesheet">
   <title>Rotterdam 360</title>
 </head>
@@ -16,11 +17,11 @@
 <body>
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Location</a>
-    <a href="#">360 Photo</a>
-    <a href="#">Virtual Tour</a>
+    <a href="public/index.html">Home</a>
+    <a href="public/about.html">About</a>
+    <a href="public/location.html">Location</a>
+    <a href="public/photo360.html">360 Photo</a>
+    <a href="public/virtual_tour.html">Virtual Tour</a>
   </div>
   <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
@@ -39,14 +40,18 @@
   </nav>
   <div class="container konten">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Library</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Data</li>
+      <li class="breadcrumb-item"><a href="#"><i class="fa fa-arrow-left"></i> Back to Virtual Tour</a></li>
+      <li class="breadcrumb-item"><a href="#" id="nmGedSkrg" name="nmGedSkrg">Musem Laga Ligo</a></li>
     </ol>
-    <p class="nama-tempat"> <i class="fa fa-home mr-2"></i> <span id="namaTempat" name="namaTempat">Museum La Ga Ligo</span></p>
+    <p class="nama-tempat"> <i class="fa fa-home mr-2"></i> <span id="namaTempat" name="namaTempat">Museum Laga Ligo</span></p>
     <div class="card no-border">
       <div class="card-body">
-        <img src="assets/img/gedung_baru.png" width="100%">
+        <!-- <img src="assets/img/gedung_baru.png" width="100%"> -->
+        <div class="ba-Slider" style="width:980px;height:558px;" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
+          <div id="before"><img src="assets/img/gedung_baru.png" width="980" height="558px" /></div>
+          <div class="slider"></div>
+          <div id="after"><img src="assets/img/gedung_lama.png" width="980" height="558px" /></div>
+        </div>
         <div class="row mt-5">
           <div class="col-md-6">
             <div class="card no-border">
@@ -54,11 +59,11 @@
                 <h4 class="mb-4">Saat ini</h4>
                 <div class="mb-2">
                   <h5>Nama Gedung</h5>
-                  <label>Lorem ipsum dolor sit amet</label>
+                  <label id="nmGedSkrg" name="nmGedSkrg">Lorem ipsum dolor sit amet</label>
                 </div>
                 <div class="mb-3">
                   <h5>Fungsi Gedung</h5>
-                  <label>Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</label>
+                  <label id="funGedSkrg" name="funGedSkrg">Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</label>
                 </div>
                 <div class="mb-3">
                   <h5>Lorem Ipsum</h5>
@@ -77,11 +82,11 @@
                 <h4 class="mb-4">Dahulu</h4>
                 <div class="mb-2">
                   <h5>Nama Gedung</h5>
-                  <label>Lorem ipsum dolor sit amet</label>
+                  <label id="nmGedDlu" name="nmGedDlu">Lorem ipsum dolor sit amet</label>
                 </div>
                 <div class="mb-3">
                   <h5>Fungsi Gedung</h5>
-                  <label>Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</label>
+                  <label id="funGedDlu" name="funGedDlu">Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</label>
                 </div>
                 <div class="mb-3">
                   <h5>Lorem Ipsum</h5>
@@ -104,6 +109,62 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="assets/js//popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
+  <script>
+  var moveSlider = false;
+  $(document).ready(function() {
+    $(".ba-Slider").each(function(i) {
+      $(this).children(".slider").mousedown(function() {
+        moveSlider = true;
+        $(this).parent().children("#before").removeClass("ease");
+        $(this).removeClass("ease");
+      });
+      $(this).children(".slider").mouseup(function() {
+        moveSlider = false;
+        $(this).parent().children("#before").addClass("ease");
+        $(this).addClass("ease");
+        var minmax = $(this).parent().width() / 8;
+        if ($(this).parent().children("#before").width() > $(this).parent().width() - minmax) {
+          $(this).parent().children("#before").width("100%");
+          var sOffset = $(this).parent().width() - 16.5;
+          $(this).css("left", sOffset);
+        } else if ($(this).parent().children("#before").width() < minmax) {
+          $(this).parent().children("#before").width(0);
+          var sOffset = -16.5;
+          $(this).css("left", sOffset);
+        }
+
+      });
+
+      $(this).mouseup(function() {
+        moveSlider = false;
+        $(this).children("#before").addClass("ease");
+        $(this).children(".slider").addClass("ease");
+        var minmax = $(this).width() / 8;
+        if ($(this).children("#before").width() > $(this).width() - minmax) {
+          $(this).children("#before").width("100%");
+          var sOffset = $(this).width() - 16.5;
+          $(this).children(".slider").css("left", sOffset);
+        } else if ($(this).children("#before").width() < minmax) {
+          $(this).children("#before").width(0);
+          var sOffset = -16.5;
+          $(this).children(".slider").css("left", sOffset);
+        }
+
+
+      });
+      $(this).mousemove(function(e) {
+        if (moveSlider == true) {
+          var pOffset = $(this).offset();
+          var mouseX = e.pageX - pOffset.left;
+          $(this).children("#before").width(mouseX - 0.5);
+          var sOffset = mouseX - 16.5;
+          $(this).children(".slider").css("left", sOffset);
+        }
+
+      });
+    });
+  });
+  </script>
   <script>
   function toogleMenu() {
     var x = document.getElementById("sideMenu");

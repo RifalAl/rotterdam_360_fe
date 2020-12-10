@@ -27,19 +27,19 @@
           <h4>The local experience</h4>
           <label>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a</label>
         </div>
-        <div class="icon">
-          <a href="about.html">
+        <div class="icon icon-hover">
+          <a href="#section02">
             <img src="assets/icon/about.svg" width="40%">
             <p class="mt-2">About</p>
           </a>
         </div>
-        <div class="icon">
-          <a href="location.html">
+        <div class="icon icon-hover">
+          <a href="#section03">
             <img src="assets/icon/location.svg" width="40%">
             <p class="mt-2">Location</p>
           </a>
         </div>
-        <div class="icon">
+        <div class="icon icon-hover">
           <a href="virtual-tour.html">
             <img src="assets/icon/virtual-tour.svg" width="40%">
             <p class="mt-2">Virtual Tour</p>
@@ -63,13 +63,106 @@
           </a>
         </p>
       </div>
-      <!-- <a href="#section02"><span></span>Scroll</a> -->
+    </div>
+    <!-- <a href="#section02"><span></span>Scroll</a> -->
   </section>
   <section id="section02" class="demo">
-    <h1>Scroll Down Button #2</h1>
+    <div class="container">
+      <img src="assets/img/logo-bi.png" width="120px">
+      <img class="ml-1" src="assets/img/logo-tutwuri.png" width="52px">
+      <div class="judul-wrapper">
+        <p class="judulx" style="font-size: 2.5rem">About</p>
+        <p class="judulx">Fort Rotterdam</p>
+      </div>
+      <div class="card-wrapper">
+        <div class="icon">
+          <img src="assets/icon/luas.svg" width="30%">
+          <p class="mt-2">Luas Lahan</p>
+          <p class="jum-info-icon" id="luasLahan" name="luasLahan">12,41 ha</p>
+        </div>
+        <div class="icon">
+          <img src="assets/icon/luas-bangunan.svg" width="30%">
+          <p class="mt-2">Luas Bangunan</p>
+          <p class="jum-info-icon" id="luasLahan" name="luasLahan">12,41 ha</p>
+        </div>
+        <div class="icon">
+          <img src="assets/icon/tahun-dibangun.svg" width="30%">
+          <p class="mt-2">Tahun Dibangun</p>
+          <p class="jum-info-icon" id="tahunDibangun" name="tahunDibangun">1550</p>
+        </div>
+        <div class="icon">
+          <img src="assets/icon/jumlah-bangunan.svg" width="30%">
+          <p class="mt-2">Jumlah Bangunan</p>
+          <p class="jum-info-icon" id="jumlahBangunan" name="jumlahBangunan">1550</p>
+        </div>
+        <div class="icon">
+          <img src="assets/icon/jumlah-koleksi.svg" width="30%">
+          <p class="mt-2">Jumlah Koleksi</p>
+          <p class="jum-info-icon" id="jumlahKoleksi" name="jumlahKoleksi">1550</p>
+        </div>
+      </div>
+    </div>
   </section>
   <section id="section03" class="demo">
-    <h1>Scroll Down Button #3</h1>
+    <div class="d-flex" style="height: 100%">
+      <div class="form-wrap">
+        <div class="form">
+          <div class="form-information mb-4">
+            <p class="jum-info-icon"><i class="fa fa-map mr-1"></i> Fort Rotterdam</p>
+            <p>
+              <i class="fa fa-map-marker-alt mr-1"></i>
+              No.Road, Jl. Ujung Pandang, Bulo Gading, Kec. Ujung Pandang, Kota Makassar, Sulawesi Selatan 90171
+            </p>
+            <p>
+              <i class="fa fa-clock mr-1"></i>
+              09:00 - 18:00
+            </p>
+          </div>
+          <p class="jum-info-icon">Get In Touch</p>
+          <form>
+            <div class="form-group">
+              <label for="inputNama">Nama</label>
+              <input type="text" class="form-control" id="inputNama" name="inputNama" placeholder="input nama">
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="input email">
+            </div>
+            <div class="form-group">
+              <label for="inputPesan">Pesan</label>
+              <textarea class="form-control" id="inputPesan" name="inputPesan" rows="4" style="resize: none"></textarea>
+            </div>
+            <div class="row">
+              <div class="col-12 text-right">
+                <button class="btn btn-primary btn-kirim" type="submit">
+                  Kirim Pesan <i class="fa fa-caret-right"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="img-peta-wrap" style="height: 100%">
+        <div class="mapouter">
+          <div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=fort%20rotterdam&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div>
+          <style>
+          .mapouter {
+            position: relative;
+            text-align: right;
+            height: 100%;
+            width: 100%;
+          }
+
+          .gmap_canvas {
+            overflow: hidden;
+            background: none !important;
+            height: 100%;
+            width: 100%;
+          }
+          </style>
+        </div>
+      </div>
+    </div>
   </section>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -85,27 +178,6 @@
     });
   });
   </script>
-  <!-- <script>
-  $(function() {
-    $("#btnPage01").click(function() {
-      $(this).addClass("active");
-      $('#btnPage02').removeClass("active");
-      $('#btnPage03').removeClass("active");
-    });
-
-    $("#btnPage02").click(function() {
-      $(this).addClass("active");
-      $('#btnPage01').removeClass("active");
-      $('#btnPage03').removeClass("active");
-    });
-
-    $("#btnPage03").click(function() {
-      $(this).addClass("active");
-      $('#btnPage01').removeClass("active");
-      $('#btnPage02').removeClass("active");
-    });
-  });
-  </script> -->
   <script>
   $(window).scroll(function(e) {
     console.log($(this).scrollTop());
