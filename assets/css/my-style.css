@@ -282,11 +282,20 @@ section h1 {
 }
 
 .card-wrapper .icon-hover:hover {
-  background-color: #81D4FA;
+  background-color: #FAFAFA;
   height: 100%;
   padding-top: 30px;
 }
 
+.card-wrapper .icon-hover:last-child{
+  background-color: #1B3E8E;
+  height: 100%;
+  padding-top: 30px;
+  border-radius: 0px 10px 10px 0px;
+}
+.card-wrapper .icon-hover:last-child p{
+  color: white;
+}
 .card-wrapper .icon-hover:last-child:hover {
   /*background-color: tomato;*/
   border-radius: 0px 10px 10px 0px;
