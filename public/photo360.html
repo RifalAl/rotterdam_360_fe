@@ -19,52 +19,6 @@
   max-height: 100vh;
 }
 
-#wrapDetailInformasi{
-  position: absolute;
-  top: 4.5rem;
-  right: 1.5rem;
-}
-
-#btnInformasi{
-  background-color: white;
-  border-color: white;
-  padding: 15px 40px;
-  color: #212121;
-  font-weight: 600;
-   box-shadow: 2px 2px 15px -8px rgba(0, 0, 0, 0.21); 
-}
-#btnAll{
- background-color: white;
- border-color: white;
- padding: 15px 25px;
- color: #212121;
- font-weight: 500;
-  box-shadow: 2px 2px 15px -8px rgba(0, 0, 0, 0.21);
-}
-#btnInformasi:hover,#btnAll:hover{
- background-color: #1B3E8E;
- border-color:  #1B3E8E;
- color: white;
-}
-#infoBox{
-  position: absolute;
-  top: 8.5rem;
-  right: 1.5rem;
-  width: 35vw;
-  background-color: white;
-  height: 450px;
-  padding: 25px;
-  border-radius: 5px;
-}
-
-#logo-wrap{
-  position: absolute;
-  bottom: 1rem;
-  left: 2rem;
-}
-
-
-
 </style>
 
 <body>
@@ -80,7 +34,9 @@
   </div>
   <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top navbar-bg-none">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-      <p class="judulx" style="font-size: 2rem;color: #fff">Virtual Tour</p>
+      <p class="judulx" style="font-size: 2rem;color: #fff">
+        <img src="assets/icon/virtual-tour-putih.svg" class="mr-1" height="40"> 360 Photo
+      </p>
     </div>
     <div class="mx-auto order-0">
     </div>
@@ -97,9 +53,9 @@
   </div>
   <div id="wrapDetailInformasi">
     <input type="button" id="btnInformasi" class="btn btn-primary" onclick="showInfo()" value="Detail Informasi">
-    <button id="btnAll" class="btn btn-primary d-none">
-      <i class="fa fa-plus"></i>
-    </button>
+    <a href="public/list360.html" id="btnAll" class="btn btn-primary">
+      <i class="fa fa-th" style="font-size: 1.4rem"></i>
+    </a>
   </div>
   <div id="infoBox" class="overflow-auto" style="display: none">
     <h4 id="namaTempat" name="namaTempat">
@@ -151,7 +107,7 @@ Aliquam vel ex tincidunt, tincidunt sapien at, condimentum ipsum. Nullam ultrice
       var y = document.getElementById("btnInformasi");
       console.log(y.value)
       if (y.value === "Detail Informasi") {
-        y.value = "Tutup Informasi";
+        y.value = "Sembunyikan Informasi";
       } else {
         y.value = "Detail Informasi";
       }
